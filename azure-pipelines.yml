@@ -16,13 +16,13 @@ stages:
         steps:
           - bash: echo Build First Job
           - bash: echo $(PipeLineLevelVariable)
-          - bash: echo $(Build.Id)
+          - bash: echo $(Build.BuildId)
           - bash: echo $(Build.BuildNumber)
           - bash: echo $(Build.SourceBranchName)
-          - bash: echo $(Build.SourceDirectory)
+          - bash: echo $(Build.SourcesDirectory)
           - bash: echo $(System.DefaultWorkingDirectory)
           - bash: ls -R $(System.DefaultWorkingDirectory)
-          - bash: echo $ (Build.ArtifactStagingDirectory)
+          - bash: echo $(Build.ArtifactStagingDirectory)
       # - job: Job2
       #   steps:
       #     - bash: echo Job2 Stage1
