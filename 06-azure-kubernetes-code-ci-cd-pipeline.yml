@@ -56,5 +56,5 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'kubernetes-service-connection'
         namespace: 'default'
-        manifests: '$(System.ArtifactsDirectory)/deployment.yaml'
+        manifests: '$(System.ArtifactsDirectory)/configuration/kubernetes/deployment.yaml'
         containers: 'yinko2/currency-exchange-devops:$(tag)'
