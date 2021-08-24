@@ -5,8 +5,7 @@ resources:
 - repo: self
 
 variables:
-  tag: 22
-  # '$(Build.BuildId)'
+  tag: '$(Build.BuildId)'
 
 #stage 1 build docker image
 # publish the k8s files
@@ -19,13 +18,13 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    # - task: Docker@2
-    #   inputs:
-    #     containerRegistry: 'yinko2-docker-hub'
-    #     repository: 'yinko2/currency-exchange-devops'
-    #     command: 'buildAndPush'
-    #     Dockerfile: '**/Dockerfile'
-    #     tags: '$(tag)'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'yinko2-docker-hub'
+        repository: 'yinko2/currency-exchange-devops'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
